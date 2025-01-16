@@ -1,0 +1,38 @@
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        Stack<Integer>st=new Stack<>();
+        ListNode temp=head;
+        while(temp!=null){
+            st.push(temp.val);
+            temp=temp.next;
+        }
+        temp=head;
+        while(temp!=null){
+            temp.val=st.pop();
+            temp=temp.next;
+        }
+        return head;
+    }
+}
+TC=O(2n)=n;
+SC=O(n);
+
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode cur=head;
+        ListNode prev=null;
+        ListNode next=null;
+        while(cur!=null){
+            next=cur.next;
+            cur.next=prev;
+
+            prev=cur;
+            cur=next;
+        }
+        return prev;
+    }
+}
+
+TC=O(n);
+SC=O(1);
