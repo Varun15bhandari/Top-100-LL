@@ -1,0 +1,34 @@
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode temp=head;
+        int length=0;
+        while(temp!=null){
+           length++;
+           temp=temp.next;
+        }
+        int mid=length/2;
+        ListNode temp1=head;
+        while(mid>0){
+            temp1=temp1.next;
+            mid--;
+        }
+        return temp1;
+    }
+}
+  Time Complexity: O(2 * n) = O(n) where n is the number of nodes in the linked list.
+  Auxiliary Space: O(1)
+
+
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode fast=head;
+        ListNode slow=head;
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+        }
+        return slow;
+    }
+}
+TC=O(n)
+SC=O(1)
